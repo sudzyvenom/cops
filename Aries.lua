@@ -14,6 +14,7 @@ aimstate="【OFF】"
 smokestate="【OFF】"
 
 function m32()
+gg.setVisible(false)
 m1 = gg.multiChoice({
 radarstate.."Radar",
 recoilstate.."No Recoil",

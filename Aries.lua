@@ -1,4 +1,4 @@
-
+gg.setVisible(true)
 radarstate = "【OFF】"
 recoilstate = "【OFF】"
 hitboxstate = "【OFF】"
@@ -14,7 +14,6 @@ aimstate="【OFF】"
 smokestate="【OFF】"
 
 function m32()
-gg.setVisible(true)
 m1 = gg.multiChoice({
 radarstate.."Radar",
 recoilstate.."No Recoil",

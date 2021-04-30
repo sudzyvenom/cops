@@ -12,6 +12,7 @@ fovstate="【OFF】"
 namestate="【OFF】"
 aimstate="【OFF】"
 smokestate="【OFF】"
+speedstate="【OFF】"
 
 function m32()
 m1 = gg.multiChoice({
@@ -31,7 +32,7 @@ namestate.."Name Spoofer",
 "Fly",
 "Team Radar",
 "Play While Banned",
-"Speed",
+speedstate.."Speed",
 "Wall",
 "Exit"
 },nil, "╭──────────✪──────────╮\n ┌Critical Ops Script 1.24.0.f1375 💢\n ├Aries 1.4 VIP 💫\n ├32bit Menu 🛡️\n └Made by Grax 💥\n╰──────────✪──────────╯")
@@ -74,18 +75,24 @@ if m1[12] == true then
       nms()
      end
 if m1[13] == true then
+      wide()
+     end
+if m1[14] == true then
+      fly()
+     end
+if m1[15] == true then
       tra()
 end
-      if m1[14] == true then
+      if m1[16] == true then
       pwb()
 end
-if m1[15] == true then
+if m1[17] == true then
       speed()
 end
-if m1[16] == true then
+if m1[18] == true then
       wall()
 end
-if m1[17] == true then
+if m1[19] == true then
    gg.setVisible(true) os.exit(print([[💫 Aries VIP 1.4
 Discord : Grax#9999
 Discord Server : https://discord.gg/UApbG5pAhu]]))
@@ -94,7 +101,15 @@ end
 TEMP = -1
 end
 function speed()
+if speedstate == "【OFF】" then 
 gg.setSpeed(2)
+gg.toast("💚 SpeedHack Activated 💚 ")
+speedstate = "【ON】"
+else
+gg.setSpeed(2)
+gg.toast("🖤 SpeedHack Deactivated 🖤 ")
+speedstate = "【OFF】"
+end
 end
 
 function wall()

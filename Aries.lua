@@ -12,7 +12,6 @@ fovstate="【OFF】"
 namestate="【OFF】"
 aimstate="【OFF】"
 smokestate="【OFF】"
-noclipstate="【OFF】"
 
 function m32()
 m1 = gg.multiChoice({
@@ -28,15 +27,14 @@ fovstate.."Fov",
 crosshairstate.."Always Crosshair",
 botstate.."Bots Can't Shoot",
 namestate.."Name Spoofer",
-noclipstate.."No Clip",
-"Wide Hitbox",
+"Wide",
 "Fly",
 "Team Radar",
-"Undergroud",
 "Play While Banned",
-"Root Bypass",
+"Speed",
+"Wall",
 "Exit"
-},nil, "╭──────────✪──────────╮\n ┌Critical Ops Script 1.23.1.f1326 💢\n ├Aries 1.3 VIP 💫\n ├64bit Menu 🛡️\n └Made by Grax 💥\n╰──────────✪──────────╯")
+},nil, "╭──────────✪──────────╮\n ┌Critical Ops Script 1.24.0.f1375 💢\n ├Aries 1.4 VIP 💫\n ├32bit Menu 🛡️\n └Made by Grax 💥\n╰──────────✪──────────╯")
 if m1==nil then gg.sleep(1)
     else
 if m1[1] == true then
@@ -76,49 +74,59 @@ if m1[12] == true then
       nms()
      end
 if m1[13] == true then
-      noc()
-end
-if m1[14] == true then
-      whb()
-end
-if m1[15] == true then
-      fly()
-end
-if m1[16] == true then
       tra()
 end
-if m1[17] == true then
-      underg()
-end
-      if m1[18] == true then
+      if m1[14] == true then
       pwb()
 end
-if m1[19] == true then
-      rootb()
+if m1[15] == true then
+      speed()
 end
-if m1[20] == true then
-   gg.setVisible(true) os.exit(print([[💫 Aries VIP 1.3
-Discord : Grax#1337
+if m1[16] == true then
+      wall()
+end
+if m1[17] == true then
+   gg.setVisible(true) os.exit(print([[💫 Aries VIP 1.4
+Discord : Grax#9999
 Discord Server : https://discord.gg/UApbG5pAhu]]))
 end
 end
 TEMP = -1
 end
+function speed()
+gg.setSpeed(2)
+end
 
+function wall()
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber("h70 4c 2d e9 10 b0 8d e2 00 40 a0 e1 d4 00 9f e5 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a c4 00 9f e5 00 00 9f e7 00 00 90 e5 31 3d e8 eb b8 00 9f e5 01 10 a0 e3 00 10 cf e7 04 00 a0 e1 00 10 a0 e3 00 50 a0 e3 a0 5c 36 eb 01 00 50 e3 22 00 00 1a 98 00 9f e5 2c 60 94 e5 00 00 9f e7 00 00 90 e5 bf 10 d0 e5 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(16)
+gg.editAll("h01 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
+gg.clearResults()
+gg.setRanges(gg.REGION_C_ALLOC)
+gg.searchNumber('1.49999988379',gg.TYPE_FLOAT)
+gg.refineNumber('1.49999988379',gg.TYPE_FLOAT)
+gg.refineNumber('1.49999988379',gg.TYPE_FLOAT)
+gg.refineNumber('1.49999988379',gg.TYPE_FLOAT)
+gg.refineNumber('1.49999988379',gg.TYPE_FLOAT)
+gg.getResults(1000)
+gg.editAll('-1',gg.TYPE_FLOAT)
+gg.clearResults()
+end
 function radar()
 if radarstate == "【OFF】" then 
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("hc0 02 00 36 74 00 00 b5 e0 03 1f aa 06 7b f3 97 e0 03 14 aa e1 03 1f aa d7 57 02 94 f4 03 00 aa 54 00 00 b5 00 7b f3 97 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
-gg.getResults(8)
-gg.editAll("hc0 02 08 36", gg.TYPE_BYTE)
+gg.searchNumber("h01 00 50 e3 16 00 00 1a 00 00 55 e3 01 00 00 1a ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(1)
+gg.editAll("h03", gg.TYPE_BYTE)
 gg.clearResults()
 gg.toast("💚 Radar Activated 💚 ")
 radarstate = "【ON】"
 else
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("hc0 02 08 36 74 00 00 b5 e0 03 1f aa 06 7b f3 97 e0 03 14 aa e1 03 1f aa d7 57 02 94 f4 03 00 aa 54 00 00 b5 00 7b f3 97 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
-gg.getResults(8)
-gg.editAll("hc0 02 00 36", gg.TYPE_BYTE)
+gg.searchNumber("h03 00 50 e3 16 00 00 1a 00 00 55 e3 01 00 00 1a", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(1)
+gg.editAll("h01", gg.TYPE_BYTE)
 gg.clearResults()
 gg.toast("🖤 Radar Deactivated 🖤 ")
 radarstate = "【OFF】"
@@ -128,17 +136,17 @@ end
 function norecoil()
 if recoilstate == "【OFF】" then 
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("heb 2b bb 6d e9 23 01 6d f5 13 00 f9 f4 4f 03 a9 fd 7b 04 a9 fd 03 01 91 f3 03 00 aa 74 36 40 f9 68 1a 40 bd 74 00 00 b5 e0 03 1f aa 16 a9 ef 97 80 d6 40 bd 74 3e 40 f9 00 29 20 1e 60 1a 00 bd 74 00 00 b5 e0 03 1f aa ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("hf0 4d 2d e9 18 b0 8d e2 08 8b 2d ed 00 40 a0 e1 60 50 94 e5 04 8a 94 ed 00 00 55 e3 01 00 00 1a 00 00 a0 e3 9d d7 ed eb 2d 0a 95 ed 68 50 94 e5 00 0a 38 ee 00 00 55 e3 04 0a 84 ed 01 00 00 1a 00 00 a0 e3 95 d7 ed eb ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(16)
-gg.editAll("h00 00 80 D2 C0 03 5F D6", gg.TYPE_BYTE)
+gg.editAll("h00 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
 gg.clearResults()
 gg.toast("💚 No Recoil Activated 💚 ")
 recoilstate = "【ON】"
 else
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("h00 00 80 D2 C0 03 5F D6 f5 13 00 f9 f4 4f 03 a9 fd 7b 04 a9 fd 03 01 91 f3 03 00 aa 74 36 40 f9 68 1a 40 bd 74 00 00 b5 e0 03 1f aa 16 a9 ef 97 80 d6 40 bd 74 3e 40 f9 00 29 20 1e 60 1a 00 bd 74 00 00 b5 e0 03 1f aa", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("hf0 4d 2d e9 18 b0 8d e2 08 8b 2d ed 00 40 a0 e1 60 50 94 e5 04 8a 94 ed 00 00 55 e3 01 00 00 1a 00 00 a0 e3 9d d7 ed eb 2d 0a 95 ed 68 50 94 e5 00 0a 38 ee 00 00 55 e3 04 0a 84 ed 01 00 00 1a 00 00 a0 e3 95 d7 ed eb ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(16)
-gg.editAll("heb 2b bb 6d e9 23 01 6d", gg.TYPE_BYTE)
+gg.editAll("h00 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
 gg.clearResults()
 gg.toast("🖤 No Recoil Deactivated 🖤 ")
 recoilstate = "【OFF】"
@@ -148,17 +156,17 @@ end
 function aimp()
 if aimstate == "【OFF】" then 
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("hff c3 01 d1 ea 13 00 fd e9 a3 02 6d f7 1f 00 f9 f6 57 04 a9 f4 4f 05 a9 fd 7b 06 a9 fd 83 01 91 97 0c 01 b0 e8 c2 40 39 f4 03 03 2a f6 03 02 2a f5 03 01 2a f3 03 00 aa e0 07 02 2d e2 1b 00 bd e8 00 00 37 08 fb 00 90 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("hf0 48 2d e9 10 b0 8d e2 06 8b 2d ed 38 d0 4d e2 00 40 a0 e1 38 02 9f e5 01 50 a0 e1 08 10 9b e5 00 00 8f e0 30 30 8d e5 2c 20 8d e5 00 00 d0 e5 34 10 8d e5 00 00 50 e3 06 00 00 1a 14 02 9f e5 00 00 9f e7 00 00 90 e5 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(16)
-gg.editAll("h00 00 80 D2 C0 03 5F D6", gg.TYPE_BYTE)
+gg.editAll("h00 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
 gg.clearResults()
 gg.toast("💚 No Aimpunch Activated 💚 ")
 aimstate = "【ON】"
 else
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("h00 00 80 D2 C0 03 5F D6 e9 a3 02 6d f7 1f 00 f9 f6 57 04 a9 f4 4f 05 a9 fd 7b 06 a9 fd 83 01 91 97 0c 01 b0 e8 c2 40 39 f4 03 03 2a f6 03 02 2a f5 03 01 2a f3 03 00 aa e0 07 02 2d e2 1b 00 bd e8 00 00 37 08 fb 00 90 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("h00 00 A0 E3 1E FF 2F E1 06 8b 2d ed 38 d0 4d e2 00 40 a0 e1 38 02 9f e5 01 50 a0 e1 08 10 9b e5 00 00 8f e0 30 30 8d e5 2c 20 8d e5 00 00 d0 e5 34 10 8d e5 00 00 50 e3 06 00 00 1a 14 02 9f e5 00 00 9f e7 00 00 90 e5 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(16)
-gg.editAll("hff c3 01 d1 ea 13 00 fd", gg.TYPE_BYTE)
+gg.editAll("h10 4c 2d e9 08 b0 8d e2", gg.TYPE_BYTE)
 gg.clearResults()
 gg.toast("🖤 No Aimpunch Deactivated 🖤 ")
 aimstate = "【OFF】"
@@ -170,14 +178,14 @@ if hitboxstate == "【OFF】" then
 gg.setRanges(gg.REGION_CODE_APP)
 gg.searchNumber("100", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(700)
-gg.editAll("1.002", gg.TYPE_FLOAT)
+gg.editAll("0.0123", gg.TYPE_FLOAT)
 gg.clearResults()
 gg.toast("💚 Hitbox Activated 💚 ")
 hitboxstate = "【ON】"
 else
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("1.002", gg.TYPE_FLOAT)
-gg.getResults(1000)
+gg.searchNumber("0.0123", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(700)
 gg.editAll("100", gg.TYPE_FLOAT)
 gg.clearResults()
 gg.toast("🖤Hitbox Deactivated 🖤")
@@ -188,17 +196,17 @@ end
 function nflash()
 if flashstate == "【OFF】" then 
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("h00 40 00 bd c0 03 5f d6 eb 2b bc 6d e9 23 01 6d f4 4f 02 a9 fd 7b 03 a9 fd c3 00 91 f4 14 01 f0 88 a6 54 39 f3 03 00 aa e8 00 00 37 88 05 01 90 08 e1 47 f9 00 01 40 b9 ef 33 f3 97 e8 03 00 32 88 a6 14 39 48 00 01 90 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("h28 00 90 e5 1e ff 2f e1 28 10 80 e5 1e ff 2f e1 f0 4f 2d e9 1c b0 8d e2 2c d0 4d e2 1f d0 c3 e7 00 40 a0 e1 74 01 9f e5 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a 64 01 9f e5 00 00 9f e7 00 00 90 e5 00 8a fa eb ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(16)
-gg.editAll("h00 00 80 D2 C0 03 5F D6", gg.TYPE_BYTE)
+gg.editAll("h00 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
 gg.clearResults()
 gg.toast("💚 No Flash Activated 💚 ")
 flashstate = "【ON】"
 else
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("h00 00 80 D2 C0 03 5F D6 eb 2b bc 6d e9 23 01 6d f4 4f 02 a9 fd 7b 03 a9 fd c3 00 91 f4 14 01 f0 88 a6 54 39 f3 03 00 aa e8 00 00 37 88 05 01 90 08 e1 47 f9 00 01 40 b9 ef 33 f3 97 e8 03 00 32 88 a6 14 39 48 00 01 90 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("h00 00 A0 E3 1E FF 2F E1 28 10 80 e5 1e ff 2f e1 f0 4f 2d e9 1c b0 8d e2 2c d0 4d e2 1f d0 c3 e7 00 40 a0 e1 74 01 9f e5 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a 64 01 9f e5 00 00 9f e7 00 00 90 e5 00 8a fa eb ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(16)
-gg.editAll("h00 40 00 bd c0 03 5f d6", gg.TYPE_BYTE)
+gg.editAll("h28 00 90 e5 1e ff 2f e1", gg.TYPE_BYTE)
 gg.clearResults()
 gg.toast("🖤 No Flash Deactivated 🖤 ")
 flashstate = "【OFF】"
@@ -208,19 +216,17 @@ end
 function nsmoke()
 if smokestate == "【OFF】" then 
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("0AD7233Cr;00007F43r;00000000r;F04F2DE9r;10D04DE2r;0060A0E1r;000057E3r;0050A0E3r", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
-gg.searchNumber("0AD7233Cr", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
-gg.getResults(4)
-gg.editAll("000010C1r", gg.TYPE_DWORD)
+gg.searchNumber("h64 00 90 e5 1e ff 2f e1 64 10 80 e5 1e ff 2f e1 68 10 81 e2 8f 0a 61 f4 8f 0a 40 f4 1e ff 2f e1 68 00 80 e2 00 c0 9d e5 0e 10 80 e8 1e ff 2f e1 78 00 90 e5 1e ff 2f e1 78 10 80 e5 1e ff 2f e1 7c 00 90 e5 1e ff 2f e1 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(16)
+gg.editAll("h00 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
 gg.clearResults()
 gg.toast("💚 No Smoke Activated 💚 ")
 smokestate = "【ON】"
 else
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("000010C1r", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
-gg.searchNumber("000010C1r", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1)
-gg.getResults(4)
-gg.editAll("0AD7233Cr;00007F43r;00000000r;F04F2DE9r;10D04DE2r;0060A0E1r;000057E3r;0050A0E3r", gg.TYPE_DWORD)
+gg.searchNumber("h00 00 A0 E3 1E FF 2F E1 64 10 80 e5 1e ff 2f e1 68 10 81 e2 8f 0a 61 f4 8f 0a 40 f4 1e ff 2f e1 68 00 80 e2 00 c0 9d e5 0e 10 80 e8 1e ff 2f e1 78 00 90 e5 1e ff 2f e1 78 10 80 e5 1e ff 2f e1 7c 00 90 e5 1e ff 2f e1 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(16)
+gg.editAll("h64 00 90 e5 1e ff 2f e1", gg.TYPE_BYTE)
 gg.clearResults()
 gg.toast("🖤 No Smoke Deactivated 🖤 ")
 smokestate = "【OFF】"
@@ -230,17 +236,17 @@ end
 function nspread()
 if spreadstate == "【OFF】" then 
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("he9 23 bc 6d f5 0b 00 f9 f4 4f 02 a9 fd 7b 03 a9 fd c3 00 91 f3 03 00 aa 74 3e 40 f9 74 00 00 b5 e0 03 1f aa 62 a9 ef 97 75 36 40 f9 94 0e 40 f9 75 00 00 b5 e0 03 1f aa 5d a9 ef 97 a0 aa 40 bd e0 03 13 aa e1 03 14 aa ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("h70 4c 2d e9 10 b0 8d e2 04 8b 2d ed 00 40 a0 e1 68 50 94 e5 00 00 55 e3 01 00 00 1a 00 00 a0 e3 e9 d7 ed eb 60 60 94 e5 10 50 95 e5 00 00 56 e3 01 00 00 1a 00 00 a0 e3 e3 d7 ed eb 98 20 96 e5 04 00 a0 e1 05 10 a0 e1 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(16)
-gg.editAll("h00 00 80 D2 C0 03 5F D6", gg.TYPE_BYTE)
+gg.editAll("h00 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
 gg.clearResults()
 gg.toast("💚 No Spread Activated 💚 ")
 spreadstate = "【ON】"
 else
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("h00 00 80 D2 C0 03 5F D6 f4 4f 02 a9 fd 7b 03 a9 fd c3 00 91 f3 03 00 aa 74 3e 40 f9 74 00 00 b5 e0 03 1f aa 62 a9 ef 97 75 36 40 f9 94 0e 40 f9 75 00 00 b5 e0 03 1f aa 5d a9 ef 97 a0 aa 40 bd e0 03 13 aa e1 03 14 aa ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("h00 00 A0 E3 1E FF 2F E1 04 8b 2d ed 00 40 a0 e1 68 50 94 e5 00 00 55 e3 01 00 00 1a 00 00 a0 e3 e9 d7 ed eb 60 60 94 e5 10 50 95 e5 00 00 56 e3 01 00 00 1a 00 00 a0 e3 e3 d7 ed eb 98 20 96 e5 04 00 a0 e1 05 10 a0 e1 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(16)
-gg.editAll("he9 23 bc 6d f5 0b 00 f9", gg.TYPE_BYTE)
+gg.editAll("h70 4c 2d e9 10 b0 8d e2", gg.TYPE_BYTE)
 gg.clearResults()
 gg.toast("🖤 No Spread Deactivated 🖤 ")
 spreadstate = "【OFF】"
@@ -292,17 +298,17 @@ end
 function ac()
 if crosshairstate == "【OFF】" then 
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("h00 60 42 39 c0 03 5f d6 28 00 00 12 08 60 02 39 c0 03 5f d6 00 9c 40 b9 c0 03 5f d6 01 9c 00 b9 c0 03 5f d6 00 a0 40 bd c0 03 5f d6 00 a0 00 bd c0 03 5f d6 00 a4 40 bd c0 03 5f d6 00 a4 00 bd c0 03 5f d6 00 a0 42 39 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("h68 00 d0 e5 1e ff 2f e1 68 10 c0 e5 1e ff 2f e1 6c 00 90 e5 1e ff 2f e1 6c 10 80 e5 1e ff 2f e1 70 00 90 e5 1e ff 2f e1 70 10 80 e5 1e ff 2f e1 74 00 90 e5 1e ff 2f e1 74 10 80 e5 1e ff 2f e1 78 00 d0 e5 1e ff 2f e1 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(16)
-gg.editAll("h20 00 80 D2 C0 03 5F D6", gg.TYPE_BYTE)
+gg.editAll("h01 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
 gg.clearResults()
 gg.toast("💚 Always Crosshair Activated 💚 ")
 crosshairstate = "【ON】"
 else
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("h20 00 80 D2 C0 03 5F D6 28 00 00 12 08 60 02 39 c0 03 5f d6 00 9c 40 b9 c0 03 5f d6 01 9c 00 b9 c0 03 5f d6 00 a0 40 bd c0 03 5f d6 00 a0 00 bd c0 03 5f d6 00 a4 40 bd c0 03 5f d6 00 a4 00 bd c0 03 5f d6 00 a0 42 39 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("h01 00 A0 E3 1E FF 2F E1 68 10 c0 e5 1e ff 2f e1 6c 00 90 e5 1e ff 2f e1 6c 10 80 e5 1e ff 2f e1 70 00 90 e5 1e ff 2f e1 70 10 80 e5 1e ff 2f e1 74 00 90 e5 1e ff 2f e1 74 10 80 e5 1e ff 2f e1 78 00 d0 e5 1e ff 2f e1 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(16)
-gg.editAll("h00 60 42 39 c0 03 5f d6", gg.TYPE_BYTE)
+gg.editAll("h68 00 d0 e5 1e ff 2f e1", gg.TYPE_BYTE)
 gg.clearResults()
 gg.toast("🖤 Always Crosshair Deactivated 🖤 ")
 crosshairstate = "【OFF】"
@@ -312,17 +318,17 @@ end
 function bootns()
 if botstate == "【OFF】" then
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("hf7 0f 1c f8 f6 57 01 a9 f4 4f 02 a9 fd 7b 03 a9 fd c3 00 91 55 11 01 b0 a8 32 65 39 f3 03 01 aa f4 03 00 aa e8 00 00 37 48 fd 00 90 08 59 41 f9 00 01 40 b9 5e 5c f1 97 e8 03 00 32 a8 32 25 39 88 fc 00 d0 08 6d 41 f9 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("hf0 48 2d e9 10 b0 8d e2 00 50 a0 e1 68 01 9f e5 01 40 a0 e1 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a 54 01 9f e5 00 00 9f e7 00 00 90 e5 f8 69 ef eb 48 01 9f e5 01 10 a0 e3 00 10 cf e7 40 01 9f e5 00 00 9f e7 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(16)
-gg.editAll("h00 00 80 D2 C0 03 5F D6", gg.TYPE_BYTE)
+gg.editAll("h00 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
 gg.clearResults()
 gg.toast("💚 Bots No Shoot Activated 💚 ")
 botstate = "【ON】"
 else
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("h00 00 80 D2 C0 03 5F D6 f4 4f 02 a9 fd 7b 03 a9 fd c3 00 91 55 11 01 b0 a8 32 65 39 f3 03 01 aa f4 03 00 aa e8 00 00 37 48 fd 00 90 08 59 41 f9 00 01 40 b9 5e 5c f1 97 e8 03 00 32 a8 32 25 39 88 fc 00 d0 08 6d 41 f9 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("h00 00 A0 E3 1E FF 2F E1 00 50 a0 e1 68 01 9f e5 01 40 a0 e1 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a 54 01 9f e5 00 00 9f e7 00 00 90 e5 f8 69 ef eb 48 01 9f e5 01 10 a0 e3 00 10 cf e7 40 01 9f e5 00 00 9f e7 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(16)
-gg.editAll("hf7 0f 1c f8 f6 57 01 a9", gg.TYPE_BYTE)
+gg.editAll("hf0 48 2d e9 10 b0 8d e2", gg.TYPE_BYTE)
 gg.clearResults()
 gg.toast("🖤 Bots No Shoot Deactivated 🖤 ")
 botstate = "【OFF】"
@@ -333,88 +339,33 @@ function nms()
 gg.alert("🖤 Open at Critical Force logo")
 if namestate == "【OFF】" then 
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("hff 43 03 d1 eb 2b 05 6d e9 23 06 6d fb 3b 00 f9 fa 67 08 a9 f8 5f 09 a9 f6 57 0a a9 f4 4f 0b a9 fd 7b 0c a9 fd 03 03 91 f7 03 01 b0 e8 16 6d 39 f4 03 04 2a f5 03 03 aa f6 03 02 aa f8 03 01 aa f3 03 00 aa e8 00 00 37 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("hf0 4f 2d e9 1c b0 8d e2 3c d0 4d e2 00 80 a0 e1 1c 06 9f e5 03 70 a0 e1 02 90 a0 e1 00 00 8f e0 01 50 a0 e1 00 00 d0 e5 00 00 50 e3 06 00 00 1a 00 06 9f e5 00 00 9f e7 00 00 90 e5 f3 af fb eb f4 05 9f e5 01 10 a0 e3 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(16)
-gg.editAll("h00 00 80 D2 C0 03 5F D6", gg.TYPE_BYTE)
+gg.editAll("h00 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
 gg.clearResults()
 gg.toast("💚 Name Spoofer Activated 💚 ")
 namestate = "【ON】"
 else
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("h00 00 80 D2 C0 03 5F D6 e9 23 06 6d fb 3b 00 f9 fa 67 08 a9 f8 5f 09 a9 f6 57 0a a9 f4 4f 0b a9 fd 7b 0c a9 fd 03 03 91 f7 03 01 b0 e8 16 6d 39 f4 03 04 2a f5 03 03 aa f6 03 02 aa f8 03 01 aa f3 03 00 aa e8 00 00 37 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("h00 00 A0 E3 1E FF 2F E1 3c d0 4d e2 00 80 a0 e1 1c 06 9f e5 03 70 a0 e1 02 90 a0 e1 00 00 8f e0 01 50 a0 e1 00 00 d0 e5 00 00 50 e3 06 00 00 1a 00 06 9f e5 00 00 9f e7 00 00 90 e5 f3 af fb eb f4 05 9f e5 01 10 a0 e3 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(16)
-gg.editAll("hff 43 03 d1 eb 2b 05 6d", gg.TYPE_BYTE)
+gg.editAll("hf0 4f 2d e9 1c b0 8d e2", gg.TYPE_BYTE)
 gg.clearResults()
 gg.toast("🖤 Name Spoofer Deactivated 🖤 ")
 namestate = "【OFF】"
 end
 end
 
-function aimp()
-if noclipstate == "【OFF】" then 
-gg.setRanges(gg.REGION_C_ALLOC)
-gg.searchNumber("1.5;0.4", gg.TYPE_FLOAT)
-gg.refineNumber("0.4", gg.TYPE_FLOAT)
-gg.getResults(500)
-gg.editAll("-888", gg.TYPE_FLOAT)
-gg.clearResults()
-gg.toast("💚 No Clip Activated 💚 ")
-noclipstate = "【ON】"
-else
-gg.setRanges(gg.REGION_C_ALLOC)
-gg.searchNumber("1.5;-888", gg.TYPE_FLOAT)
-gg.refineNumber("-888", gg.TYPE_FLOAT)
-gg.getResults(500)
-gg.editAll("0.4", gg.TYPE_FLOAT)
-gg.clearResults()
-gg.toast("🖤 No Clip Deactivated 🖤 ")
-noclipstate = "【OFF】"
-end
-end
-
-function whb()
-gg.getRanges()
-gg.setRanges(gg.REGION_C_ALLOC)
-gg.searchNumber("0.9", gg.TYPE_FLOAT)
-gg.searchAddress("0", nil)
-gg.getResults(100000)
-gg.editAll(6, gg.TYPE_FLOAT)
-gg.clearResults()
-gg.toast("💚 Wide Hitbox Activated 💚 ")
-end
-
-function fly()
-gg.setRanges(gg.REGION_C_ALLOC)
-    gg.searchNumber("1.5", gg.TYPE_FLAOT, false, gg.SIGN_EQUAL, 0, -1)
-    gg.getResults(10000)
-    gg.editAll("5", gg.TYPE_FLOAT)
-    gg.clearResults()
-    gg.toast("💚 Fly Activated 💚 ")
-end
 function pwb()
 gg.alert([[🖤 Open at Critical Force logo
 💫 Works only practice mode.]])
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("hff 43 02 d1 f6 57 06 a9 f4 4f 07 a9 fd 7b 08 a9 fd 03 02 91 f6 20 01 d0 c8 3a 55 39 f4 03 02 2a f3 03 01 2a f5 03 00 aa e8 00 00 37 28 0c 01 d0 08 65 45 f9 00 01 40 b9 6c 32 f9 97 e8 03 00 32 c8 3a 15 39 b6 0e 40 f9 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("hf0 4f 2d e9 1c b0 8d e2 24 d0 4d e2 00 60 a0 e1 44 01 9f e5 02 70 a0 e1 01 90 a0 e1 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a 2c 01 9f e5 00 00 9f e7 00 00 90 e5 ed 7f fd eb 20 01 9f e5 01 10 a0 e3 00 10 cf e7 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(16)
-gg.editAll("h20 00 80 D2 C0 03 5F D6", gg.TYPE_BYTE)
+gg.editAll("h01 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
 gg.clearResults()
 gg.toast("💚 Play While Banned Activated 💚 ")
 end
-
-function rootb()
-gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("hf4 4f be a9 fd 7b 01 a9 fd 43 00 91 f4 ac 00 f0 88 a2 4f 39 f3 03 00 aa e8 00 00 37 28 9d 00 90 08 05 47 f9 00 01 40 b9 5f 10 bf 97 e8 03 00 32 88 a2 0f 39 33 02 00 b4 e0 03 13 aa e1 03 1f aa 6a b3 ef 97 68 98 00 d0 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
-gg.getResults(16)
-gg.editAll("h00 00 80 D2 C0 03 5F D6", gg.TYPE_BYTE)
-gg.clearResults()
-gg.searchNumber("hf4 4f be a9 fd 7b 01 a9 fd 43 00 91 f4 ac 00 f0 88 9a 4f 39 f3 03 00 aa e8 00 00 37 08 9a 00 d0 08 b1 44 f9 00 01 40 b9 b8 10 bf 97 e8 03 00 32 88 9a 0f 39 33 02 00 b4 e0 03 13 aa e1 03 1f aa c3 b3 ef 97 68 98 00 d0 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
-gg.getResults(16)
-gg.editAll("h00 00 80 D2 C0 03 5F D6", gg.TYPE_BYTE)
-gg.clearResults()
-gg.toast("💚 Root Bypass Activated 💚 ")
-end
-
 
 
 function tra()
@@ -434,9 +385,9 @@ end
 
 function tr1()
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("hf5 0f 1d f8 f4 4f 01 a9 fd 7b 02 a9 fd 83 00 91 74 0f 01 b0 88 ee 72 39 f3 03 00 aa e8 00 00 37 e8 fe 00 90 08 4d 43 f9 00 01 40 b9 2b 6b f0 97 e8 03 00 32 88 ee 32 39 e0 03 13 aa e1 03 1f aa 85 92 35 94 80 03 00 36 d5 fe 00 d0 b5 3e 47 f9 74 5a 40 b9 a0 02 40 f9 08 9c 44 39 88 00 08 36 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("h70 4c 2d e9 10 b0 8d e2 00 40 a0 e1 d4 00 9f e5 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a c4 00 9f e5 00 00 9f e7 00 00 90 e5 31 3d e8 eb b8 00 9f e5 01 10 a0 e3 00 10 cf e7 04 00 a0 e1 00 10 a0 e3 00 50 a0 e3 a0 5c 36 eb 01 00 50 e3 22 00 00 1a 98 00 9f e5 2c 60 94 e5 00 00 9f e7 00 00 90 e5 bf 10 d0 e5 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(16)
-gg.editAll("h20 00 80 D2 C0 03 5F D6", gg.TYPE_BYTE)
+gg.editAll("h01 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
 gg.clearResults()
 gg.toast("💚 TR Main Activated 💚 ")
 end
@@ -453,22 +404,6 @@ gg.clearResults()
 gg.toast("💚 TR UG Activated 💚 ")
 end
 
-function underg()
-gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("hf5 0f 1d f8 f4 4f 01 a9 fd 7b 02 a9 fd 83 00 91 74 0f 01 b0 88 ee 72 39 f3 03 00 aa e8 00 00 37 e8 fe 00 90 08 4d 43 f9 00 01 40 b9 2b 6b f0 97 e8 03 00 32 88 ee 32 39 e0 03 13 aa e1 03 1f aa 85 92 35 94 80 03 00 36 d5 fe 00 d0 b5 3e 47 f9 74 5a 40 b9 a0 02 40 f9 08 9c 44 39 88 00 08 36 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
-gg.getResults(16)
-gg.editAll("h20 00 80 D2 C0 03 5F D6", gg.TYPE_BYTE)
-gg.clearResults()
-gg.setRanges(gg.REGION_C_ALLOC)
-gg.searchNumber('1.49999988379',gg.TYPE_FLOAT)
-gg.refineNumber('1.49999988379',gg.TYPE_FLOAT)
-gg.refineNumber('1.49999988379',gg.TYPE_FLOAT)
-gg.refineNumber('1.49999988379',gg.TYPE_FLOAT)
-gg.refineNumber('1.49999988379',gg.TYPE_FLOAT)
-gg.getResults(1000)
-gg.editAll('-1',gg.TYPE_FLOAT)
-gg.clearResults()
-end
 while true do
 if gg.isVisible(true) then
 TEMP = 1

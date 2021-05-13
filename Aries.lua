@@ -32,6 +32,7 @@ namestate.."Name Spoofer",
 "Play While Banned",
 speedstate.."Speed",
 "Wall",
+"Base kill",
 "Exit"
 },nil, "╭──────────✪──────────╮\n ┌Critical Ops Script 1.25.0.f1397 💢\n ├Aries 1.5 VIP 💫\n ├32bit Menu 🛡️\n └Made by Grax 💥\n╰──────────✪──────────╯")
 if m1==nil then gg.sleep(1)
@@ -88,6 +89,9 @@ if m1[17] == true then
       wall()
 end
 if m1[18] == true then
+      base()
+end
+if m1[19] == true then
    gg.setVisible(true) os.exit(print([[💫 Aries VIP 1.5
 Discord : Grax#9999
 Discord Server : https://discord.gg/UApbG5pAhu]]))
@@ -116,6 +120,19 @@ gg.refineNumber('1.5',gg.TYPE_FLOAT)
 gg.getResults(1000)
 gg.editAll('3.5',gg.TYPE_FLOAT)
 gg.toast("💚 Fly Activated 💚 ")
+end
+function base()
+gg.clearResults()
+gg.setRanges(gg.REGION_C_ALLOC)
+gg.searchNumber('1.49999988379',gg.TYPE_FLOAT)
+gg.refineNumber('1.49999988379',gg.TYPE_FLOAT)
+gg.refineNumber('1.49999988379',gg.TYPE_FLOAT)
+gg.refineNumber('1.49999988379',gg.TYPE_FLOAT)
+gg.refineNumber('1.49999988379',gg.TYPE_FLOAT)
+gg.getResults(1000)
+gg.editAll('-1',gg.TYPE_FLOAT)
+gg.clearResults()
+gg.alert("Base kill")
 end
 function wall()
 gg.setRanges(gg.REGION_CODE_APP)

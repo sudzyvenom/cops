@@ -12,7 +12,7 @@ fovstate="【OFF】"
 namestate="【OFF】"
 aimstate="【OFF】"
 speedstate="【OFF】"
-
+gg.clearResults()
 function m32()
 m1 = gg.multiChoice({
 radarstate.."Radar",
@@ -123,8 +123,8 @@ gg.toast("💚 Fly Activated 💚 ")
 end
 function wall()
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("h70 4c 2d e9 10 b0 8d e2 00 40 a0 e1 d4 00 9f e5 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a c4 00 9f e5 00 00 9f e7 00 00 90 e5 37 a5 e7 eb b8 00 9f e5 01 10 a0 e3 00 10 cf e7 04 00 a0 e1 00 10 a0 e3 00 50 a0 e3 44 ac 35 eb 01 00 50 e3 22 00 00 1a 98 00 9f e5 2c 60 94 e5 00 00 9f e7 00 00 90 e5 bf 10 d0 e5 02 00 11 e3 03 00 00 0a ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
-gg.getResults(16)
+gg.searchNumber("h70 4c 2d e9 10 b0 8d e2 00 40 a0 e1 d4 00 9f e5 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a c4 00 9f e5 00 00 9f e7 00 00 90 e5 37 a5 e7 eb b8 00 9f e5 01 10 a0 e3 00 10 cf e7 04 00 a0 e1 00 10 a0 e3 00 50 a0 e3 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(100)
 gg.editAll("h01 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
 gg.clearResults()
 gg.setRanges(gg.REGION_C_ALLOC)
@@ -391,10 +391,9 @@ end
 
 function tr1()
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("h70 4c 2d e9 10 b0 8d e2 00 40 a0 e1 d4 00 9f e5 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a c4 00 9f e5 00 00 9f e7 00 00 90 e5 37 a5 e7 eb b8 00 9f e5 01 10 a0 e3 00 10 cf e7 04 00 a0 e1 00 10 a0 e3 00 50 a0 e3 44 ac 35 eb 01 00 50 e3 22 00 00 1a 98 00 9f e5 2c 60 94 e5 00 00 9f e7 00 00 90 e5 bf 10 d0 e5 02 00 11 e3 03 00 00 0a ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
-gg.getResults(16)
+gg.searchNumber("h70 4c 2d e9 10 b0 8d e2 00 40 a0 e1 d4 00 9f e5 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a c4 00 9f e5 00 00 9f e7 00 00 90 e5 37 a5 e7 eb b8 00 9f e5 01 10 a0 e3 00 10 cf e7 04 00 a0 e1 00 10 a0 e3 00 50 a0 e3 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(100)
 gg.editAll("h01 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
-gg.clearResults()
 gg.toast("💚 TR Main Activated 💚 ")
 end
 function tr2()

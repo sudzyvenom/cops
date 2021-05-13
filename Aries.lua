@@ -32,7 +32,7 @@ namestate.."Name Spoofer",
 "Play While Banned",
 speedstate.."Speed",
 "Wall",
-"Base kill",
+"Base",
 "Exit"
 },nil, "╭──────────✪──────────╮\n ┌Critical Ops Script 1.25.0.f1397 💢\n ├Aries 1.5 VIP 💫\n ├32bit Menu 🛡️\n └Made by Grax 💥\n╰──────────✪──────────╯")
 if m1==nil then gg.sleep(1)
@@ -89,7 +89,7 @@ if m1[17] == true then
       wall()
 end
 if m1[18] == true then
-      base()
+      wall()
 end
 if m1[19] == true then
    gg.setVisible(true) os.exit(print([[💫 Aries VIP 1.5
@@ -121,22 +121,9 @@ gg.getResults(1000)
 gg.editAll('3.5',gg.TYPE_FLOAT)
 gg.toast("💚 Fly Activated 💚 ")
 end
-function base()
-gg.clearResults()
-gg.setRanges(gg.REGION_C_ALLOC)
-gg.searchNumber('1.49999988379',gg.TYPE_FLOAT)
-gg.refineNumber('1.49999988379',gg.TYPE_FLOAT)
-gg.refineNumber('1.49999988379',gg.TYPE_FLOAT)
-gg.refineNumber('1.49999988379',gg.TYPE_FLOAT)
-gg.refineNumber('1.49999988379',gg.TYPE_FLOAT)
-gg.getResults(1000)
-gg.editAll('-1',gg.TYPE_FLOAT)
-gg.clearResults()
-gg.alert("Base kill")
-end
 function wall()
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("h70 4c 2d e9 10 b0 8d e2 00 40 a0 e1 d4 00 9f e5 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a c4 00 9f e5 00 00 9f e7 00 00 90 e5 37 a5 e7 eb b8 00 9f e5 01 10 a0 e3 00 10 cf e7 04 00 a0 e1 00 10 a0 e3 00 50 a0 e3 44 ac 35 eb 01 00 50 e3 22 00 00 1a 98 00 9f e5 2c 60 94 e5 00 00 9f e7 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("h70 4c 2d e9 10 b0 8d e2 00 40 a0 e1 d4 00 9f e5 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a c4 00 9f e5 00 00 9f e7 00 00 90 e5 37 a5 e7 eb b8 00 9f e5 01 10 a0 e3 00 10 cf e7 04 00 a0 e1 00 10 a0 e3 00 50 a0 e3 44 ac 35 eb 01 00 50 e3 22 00 00 1a 98 00 9f e5 2c 60 94 e5 00 00 9f e7 00 00 90 e5 bf 10 d0 e5 02 00 11 e3 03 00 00 0a ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(16)
 gg.editAll("h01 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
 gg.clearResults()
@@ -404,7 +391,7 @@ end
 
 function tr1()
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("h70 4c 2d e9 10 b0 8d e2 00 40 a0 e1 d4 00 9f e5 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a c4 00 9f e5 00 00 9f e7 00 00 90 e5 37 a5 e7 eb b8 00 9f e5 01 10 a0 e3 00 10 cf e7 04 00 a0 e1 00 10 a0 e3 00 50 a0 e3 44 ac 35 eb 01 00 50 e3 22 00 00 1a 98 00 9f e5 2c 60 94 e5 00 00 9f e7 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("h70 4c 2d e9 10 b0 8d e2 00 40 a0 e1 d4 00 9f e5 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a c4 00 9f e5 00 00 9f e7 00 00 90 e5 37 a5 e7 eb b8 00 9f e5 01 10 a0 e3 00 10 cf e7 04 00 a0 e1 00 10 a0 e3 00 50 a0 e3 44 ac 35 eb 01 00 50 e3 22 00 00 1a 98 00 9f e5 2c 60 94 e5 00 00 9f e7 00 00 90 e5 bf 10 d0 e5 02 00 11 e3 03 00 00 0a ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(16)
 gg.editAll("h01 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
 gg.clearResults()

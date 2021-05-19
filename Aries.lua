@@ -161,7 +161,7 @@ end
 function radar()
 if radarstate == "【OFF】" then 
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("h01 00 50 e3 16 00 00 1a 00 00 55 e3 01 00 00 1a ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("h01 00 50 e3 16 00 00 1a 00 00 55 e3 01 00 00 1a 00 00 a0 e3 ba ab f9 eb 05 00 a0 e1 00 10 a0 e3 82 96 10 eb 00 50 a0 e1 00 00 55 e3 01 00 00 1a ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(1)
 gg.editAll("h03", gg.TYPE_BYTE)
 gg.clearResults()
@@ -169,7 +169,7 @@ gg.toast("💚 Radar Activated 💚 ")
 radarstate = "【ON】"
 else
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("h03 00 50 e3 16 00 00 1a 00 00 55 e3 01 00 00 1a", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("h03 00 50 e3 16 00 00 1a 00 00 55 e3 01 00 00 1a 00 00 a0 e3 ba ab f9 eb 05 00 a0 e1 00 10 a0 e3 82 96 10 eb 00 50 a0 e1 00 00 55 e3 01 00 00 1a ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(1)
 gg.editAll("h01", gg.TYPE_BYTE)
 gg.clearResults()

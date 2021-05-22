@@ -19,7 +19,7 @@ radarstate.."Radar",
 recoilstate.."No Recoil",
 aimstate.."No Aimpunch",
 hitboxstate.."Hitbox",
-flashstate.."No Flash",
+flashstate.."No Flash / Granade Damage",
 spreadstate.."No Spread",
 fireratestate.."Fire Rate",
 fovstate.."Fov",
@@ -33,9 +33,9 @@ namestate.."Name Spoofer",
 speedstate.."Speed",
 "Wall",
 "Base",
-"No Smoke [Test]",
+"No Smoke",
 "Exit"
-},nil, "╭──────────✪──────────╮\n ┌Critical Ops Script 1.25.0.f1398 💢\n ├Aries 1.5 VIP 💫\n ├32bit Menu 🛡️\n └Made by Grax 💥\n╰──────────✪──────────╯")
+},nil, "╭──────────✪──────────╮\n ┌Critical Ops Script 1.25.0.f1407 💢\n ├Aries 1.5 VIP 💫\n ├32bit Menu 🛡️\n └Made by Grax 💥\n╰──────────✪──────────╯")
 if m1==nil then gg.sleep(1)
     else
 if m1[1] == true then
@@ -144,7 +144,7 @@ gg.toast("💚 Fly Activated 💚 ")
 end
 function wall()
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("h70 4c 2d e9 10 b0 8d e2 00 40 a0 e1 d4 00 9f e5 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a c4 00 9f e5 00 00 9f e7 00 00 90 e5 74 43 e8 eb b8 00 9f e5 01 10 a0 e3 00 10 cf e7 04 00 a0 e1 00 10 a0 e3 00 50 a0 e3 d4 66 36 eb 01 00 50 e3 22 00 00 1a 98 00 9f e5 2c 60 94 e5 00 00 9f e7 00 00 90 e5 bf 10 d0 e5 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("h70 4c 2d e9 10 b0 8d e2 00 40 a0 e1 d4 00 9f e5 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a c4 00 9f e5 00 00 9f e7 00 00 90 e5 5d 43 e8 eb b8 00 9f e5 01 10 a0 e3 00 10 cf e7 04 00 a0 e1 00 10 a0 e3 00 50 a0 e3 dd 66 36 eb 01 00 50 e3 22 00 00 1a 98 00 9f e5 2c 60 94 e5 00 00 9f e7 00 00 90 e5 bf 10 d0 e5 02 00 11 e3 03 00 00 0a 70 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(100)
 gg.editAll("h01 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
 gg.toast("💚 TR Main Activated 💚 ")
@@ -161,7 +161,7 @@ end
 function radar()
 if radarstate == "【OFF】" then 
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("h01 00 50 e3 16 00 00 1a 00 00 55 e3 01 00 00 1a 00 00 a0 e3 ba ab f9 eb 05 00 a0 e1 00 10 a0 e3 82 96 10 eb 00 50 a0 e1 00 00 55 e3 01 00 00 1a ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("h01 00 50 e3 16 00 00 1a 00 00 55 e3 01 00 00 1a 00 00 a0 e3 ba ab f9 eb ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(1)
 gg.editAll("h03", gg.TYPE_BYTE)
 gg.clearResults()
@@ -169,7 +169,7 @@ gg.toast("💚 Radar Activated 💚 ")
 radarstate = "【ON】"
 else
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("h03 00 50 e3 16 00 00 1a 00 00 55 e3 01 00 00 1a 00 00 a0 e3 ba ab f9 eb 05 00 a0 e1 00 10 a0 e3 82 96 10 eb 00 50 a0 e1 00 00 55 e3 01 00 00 1a ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("h03 00 50 e3 16 00 00 1a 00 00 55 e3 01 00 00 1a 00 00 a0 e3 ba ab f9 eb ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(1)
 gg.editAll("h01", gg.TYPE_BYTE)
 gg.clearResults()
@@ -241,27 +241,19 @@ end
 function nflash()
 if flashstate == "【OFF】" then 
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("h30 48 2d e9 08 b0 8d e2 00 40 a0 e1 00 00 a0 e3 28 10 84 e5 fd 60 0b eb 00 50 a0 e1 00 00 55 e3 01 00 00 1a 00 00 a0 e3 b5 28 fa eb 05 00 a0 e1 00 10 a0 e3 50 61 0b eb ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("hf0 4f 2d e9 1c b0 8d e2 04 d0 4d e2 04 8b 2d ed 80 d0 4d e2 00 70 a0 e1 c4 03 9f e5 2c c0 8d e2 14 a0 8b e2 0e 00 8c e8 00 00 8f e0 3c 10 4b e2 20 06 9a e8 20 06 81 e8 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(16)
 gg.editAll("h00 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
 gg.clearResults()
-gg.searchNumber("hf0 48 2d e9 10 b0 8d e2 02 8b 2d ed 00 50 a0 e1 c0 01 9f e5 01 40 a0 e1 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a ac 01 9f e5 00 00 9f e7 00 00 90 e5 aa f5 e7 eb ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
-gg.getResults(16)
-gg.editAll("h00 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
-gg.clearResults()
-gg.toast("💚 No Flash Activated 💚 ")
+gg.toast("💚 No Flash / Granade Damage Activated 💚 ")
 flashstate = "【ON】"
 else
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("h00 00 A0 E3 1E FF 2F E1 00 40 a0 e1 00 00 a0 e3 28 10 84 e5 fd 60 0b eb 00 50 a0 e1 00 00 55 e3 01 00 00 1a 00 00 a0 e3 b5 28 fa eb 05 00 a0 e1 00 10 a0 e3 50 61 0b eb ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("h00 00 A0 E3 1E FF 2F E1 04 d0 4d e2 04 8b 2d ed 80 d0 4d e2 00 70 a0 e1 c4 03 9f e5 2c c0 8d e2 14 a0 8b e2 0e 00 8c e8 00 00 8f e0 3c 10 4b e2 20 06 9a e8 20 06 81 e8 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(16)
-gg.editAll("h30 48 2d e9 08 b0 8d e2", gg.TYPE_BYTE)
+gg.editAll("hf0 4f 2d e9 1c b0 8d e2", gg.TYPE_BYTE)
 gg.clearResults()
-gg.searchNumber("h00 00 A0 E3 1E FF 2F E1 02 8b 2d ed 00 50 a0 e1 c0 01 9f e5 01 40 a0 e1 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a ac 01 9f e5 00 00 9f e7 00 00 90 e5 aa f5 e7 eb ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
-gg.getResults(16)
-gg.editAll("hf0 48 2d e9 10 b0 8d e2", gg.TYPE_BYTE)
-gg.clearResults()
-gg.toast("🖤 No Flash Deactivated 🖤 ")
+gg.toast("🖤 No Flash / Granade Damage Deactivated 🖤 ")
 flashstate = "【OFF】"
 end
 end
@@ -420,7 +412,7 @@ end
 
 function tr1()
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("h70 4c 2d e9 10 b0 8d e2 00 40 a0 e1 d4 00 9f e5 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a c4 00 9f e5 00 00 9f e7 00 00 90 e5 74 43 e8 eb b8 00 9f e5 01 10 a0 e3 00 10 cf e7 04 00 a0 e1 00 10 a0 e3 00 50 a0 e3 d4 66 36 eb 01 00 50 e3 22 00 00 1a 98 00 9f e5 2c 60 94 e5 00 00 9f e7 00 00 90 e5 bf 10 d0 e5 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("h70 4c 2d e9 10 b0 8d e2 00 40 a0 e1 d4 00 9f e5 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a c4 00 9f e5 00 00 9f e7 00 00 90 e5 5d 43 e8 eb b8 00 9f e5 01 10 a0 e3 00 10 cf e7 04 00 a0 e1 00 10 a0 e3 00 50 a0 e3 dd 66 36 eb 01 00 50 e3 22 00 00 1a 98 00 9f e5 2c 60 94 e5 00 00 9f e7 00 00 90 e5 bf 10 d0 e5 02 00 11 e3 03 00 00 0a 70 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(100)
 gg.editAll("h01 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
 gg.toast("💚 TR Main Activated 💚 ")

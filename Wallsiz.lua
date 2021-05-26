@@ -392,7 +392,7 @@ end
 
 function tr1()
 gg.setRanges(gg.REGION_CODE_APP)
-gg.searchNumber("h70 4c 2d e9 10 b0 8d e2 00 40 a0 e1 d4 00 9f e5 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a c4 00 9f e5 00 00 9f e7 00 00 90 e5 5d 43 e8 eb b8 00 9f e5 01 10 a0 e3 00 10 cf e7 04 00 a0 e1 00 10 a0 e3 00 50 a0 e3 dd 66 36 eb 01 00 50 e3 22 00 00 1a 98 00 9f e5 2c 60 94 e5 00 00 9f e7 00 00 90 e5 bf 10 d0 e5 02 00 11 e3 03 00 00 0a 70 ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("70 4c 2d e9 10 b0 8d e2 00 40 a0 e1 d4 00 9f e5 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a c4 00 9f e5 00 00 9f e7 00 00 90 e5 5d 43 e8 eb b8 00 9f e5 01 10 a0 e3 00 10 cf e7 04 00 a0 e1 00 10 a0 e3 00 50 a0 e3 dd 66 36 eb 01 00 50 e3 22 00 00 1a 98 00 9f e5 2c 60 94 e5 00 00 9f e7 00 00 90 e5 bf 10 d0 e5 02 00 11 e3 03 00 00 0a 70 10 90 e5 00 00 51 e3 00", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
 gg.getResults(100)
 gg.editAll("h01 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
 gg.toast("💚 TR Main Activated 💚 ")

@@ -12,6 +12,7 @@ fovstate="【OFF】"
 namestate="【OFF】"
 aimstate="【OFF】"
 speedstate="【OFF】"
+nc="【OFF】"
 gg.clearResults()
 function m32()
 m1 = gg.multiChoice({
@@ -34,6 +35,7 @@ speedstate.."Speed",
 "Wall",
 "Base",
 "No Smoke",
+nc.."No Clip",
 "Exit"
 },nil, "╭──────────✪──────────╮\n ┌Critical Ops Script 1.25.0.f1407 💢\n ├Aries 1.5 VIP 💫\n ├32bit Menu 🛡️\n └Made by Grax 💥\n╰──────────✪──────────╯")
 if m1==nil then gg.sleep(1)
@@ -93,15 +95,37 @@ if m1[18] == true then
       wall()
 end
 if m1[19] == true then smoke() end
+if m1[20] == true then noclip() end
 
-if m1[20] == true then
+if m1[21] == true then
    gg.setVisible(true) os.exit(print([[💫 Aries VIP 1.5
 Discord : Grax#0001]]))
 end
 end
 TEMP = -1
 end
-
+function noclip()
+gg.alert("🖤 Open at Critical Force logo")
+if nc == "【OFF】" then 
+gg.setRanges(gg.REGION_C_ALLOC)
+gg.searchNumber("1.5;0.4", gg.TYPE_FLOAT)
+gg.refineNumber("0.4",gg.TYPE_FLOAT)
+gg.getResults(1000)
+gg.editAll("-888", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.toast("💚 No Clip Activated 💚 ")
+nc = "【ON】"
+else
+gg.setRanges(gg.REGION_C_ALLOC)
+gg.searchNumber("1.5;-888", gg.TYPE_FLOAT)
+gg.refineNumber("-888",gg.TYPE_FLOAT)
+gg.getResults(1000)
+gg.editAll("0.4", gg.TYPE_FLOAT)
+gg.clearResults()
+gg.toast("🖤 No Clip Deactivated 🖤 ")
+nc = "【OFF】"
+end
+end
 function smoke()
 gg.searchNumber("0AD7233Cr;00007F43r;00000000r;F04F2DE9r;10D04DE2r;0060A0E1r;000057E3r;0050A0E3r", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
 gg.refineNumber("0AD7233Cr", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
@@ -110,7 +134,6 @@ gg.editAll("h000010C1r", gg.TYPE_DWORD)
 gg.clearResults()
 end
 function wide()
-gg.getRanges()
 gg.setRanges(gg.REGION_C_ALLOC)
 gg.searchNumber("0.9", gg.TYPE_FLOAT)
 gg.searchAddress("0")
@@ -122,7 +145,7 @@ end
 
 function speed()
 if speedstate == "【OFF】" then 
-gg.setSpeed(3)
+gg.setSpeed(2)
 gg.toast("💚 SpeedHack Activated 💚 ")
 speedstate = "【ON】"
 else

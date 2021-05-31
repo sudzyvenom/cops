@@ -37,7 +37,7 @@ speedstate.."Speed",
 "No Smoke",
 nc.."No Clip",
 "Exit"
-},nil, "╭──────────✪──────────╮\n ┌Critical Ops Script 1.25.0.f1407 💢\n ├Aries 1.5 VIP 💫\n ├32bit Menu 🛡️\n └Made by Grax 💥\n╰──────────✪──────────╯")
+},nil, "╭──────────✪──────────╮\n ┌Critical Ops Script 1.25.0.f1419 💢\n ├Aries 1.5 VIP 💫\n ├32bit Menu 🛡️\n └Made by Grax 💥\n╰──────────✪──────────╯")
 if m1==nil then gg.sleep(1)
     else
 if m1[1] == true then
@@ -446,6 +446,7 @@ end
 function tr2()
 gg.setRanges(gg.REGION_C_ALLOC)
 gg.searchNumber('1.49999988379',gg.TYPE_FLOAT)
+gg.refineNumber('1.49999988379',gg.TYPE_FLOAT)
 gg.refineNumber('1.49999988379',gg.TYPE_FLOAT)
 gg.refineNumber('1.49999988379',gg.TYPE_FLOAT)
 gg.refineNumber('1.49999988379',gg.TYPE_FLOAT)

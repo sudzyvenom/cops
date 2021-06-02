@@ -34,6 +34,7 @@ speedstate.."Speed",
 "Wall",
 "Base",
 "No Smoke",
+"Kickli Wall",
 "Exit"
 },nil, "╭──────────✪──────────╮\n ┌Critical Ops Script 1.25.0.f1425 💢\n ├Aries 1.5 VIP 💫\n ├32bit Menu 🛡️\n └Made by Grax 💥\n╰──────────✪──────────╯")
 if m1==nil then gg.sleep(1)
@@ -93,15 +94,27 @@ if m1[18] == true then
       wall()
 end
 if m1[19] == true then smoke() end
+if m1[20] == true then wallkick() end
 
-if m1[20] == true then
+if m1[21] == true then
    gg.setVisible(true) os.exit(print([[💫 Aries VIP 1.5
 Discord : Grax#0001]]))
 end
 end
 TEMP = -1
 end
-
+function wallkick()
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber("h70 4c 2d e9 10 b0 8d e2 00 40 a0 e1 d4 00 9f e5 00 00 8f e0 00 00 d0 e5 00 00 50 e3 06 00 00 1a c4 00 9f e5 00 00 9f e7 00 00 90 e5 ff ac e8 eb b8 00 9f e5 01 10 a0 e3 00 10 cf e7 04 00 a0 e1 00 10 a0 e3 00 50 a0 e3 81 78 35 eb 01 00 50 e3 22 00 00 1a 98 00 9f e5 2c 60 94 e5 00 00 9f e7 00 00 90 e5 bf 10 d0 e5 02 00 11 e3 03 00 00 0a ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(100)
+gg.editAll("h01 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
+gg.clearResults()
+gg.setRanges(gg.REGION_CODE_APP)
+gg.searchNumber("hf0 4f 2d e9 1c b0 8d e2 04 d0 4d e2 08 8b 2d ed 90 d0 4d e2 00 40 a0 e1 60 03 9f e5 03 50 a0 e1 02 70 a0 e1 00 00 8f e0 01 90 a0 e1 00 00 d0 e5 00 00 50 e3 06 00 00 1a 44 03 9f e5 00 00 9f e7 00 00 90 e5 ce 00 f7 eb ", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(100)
+gg.editAll("h00 00 A0 E3 1E FF 2F E1", gg.TYPE_BYTE)
+gg.clearResults()
+end
 function smoke()
 gg.searchNumber("0AD7233Cr;00007F43r;00000000r;F04F2DE9r;10D04DE2r;0060A0E1r;000057E3r;0050A0E3r", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
 gg.refineNumber("0AD7233Cr", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 0)
